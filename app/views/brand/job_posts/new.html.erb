@@ -1,0 +1,124 @@
+
+<div class="content">
+
+  <div class="container-fluid container-fixed-lg">
+    <ul class="breadcrumb">
+      <li>
+        <p>Grocoon Network</p>
+      </li>
+      <li>
+        <%= link_to 'Jobs', brand_jobs_path %>
+      </li>
+      <li>
+        <a class="active" href="#">New</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="container-fluid container-fixed-lg bg-white">
+    <div class="panel panel-transparent">
+
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel-title">
+              Post new job
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-body">
+
+        <div class="row">
+          <div class="col-md-8">
+
+            <%= form_for(@job_post, url: brand_jobs_path) do |f| %>
+              <div class="form-group form-group-default">
+                <div class="controls">
+                  <%= f.label :title, 'Name your job' %>
+                  <%= f.text_field :title, placeholder: 'Example: looking for an agent in west germany', required: true, class: "form-control" %>
+                </div>
+              </div>
+
+              <div class="form-group form-group-default">
+                <div class="controls">
+                  <%= f.label :description, 'Describe the work to be done' %>
+                  <%= f.text_area :description, required: true, class: "form-control" %>
+                </div>
+              </div>
+
+              <div class="form-group form-group-default">
+                <div class="controls">
+                  <%= f.label :file_attachment, 'Attachments' %>
+                  <%= f.file_field :file_attachment %>
+                </div>
+              </div>
+
+              <hr />
+
+              <div class="form-group form-group-default">
+                <div class="controls">
+                  <%= f.label :skills, 'Required skills' %>
+                  <%= f.text_field :skills, placeholder: 'Example: sports experience', class: "form-control" %>
+                </div>
+              </div>
+
+              <!-- experience -->
+
+              <div class="form-group form-group-default">
+                <div class="controls">
+                  <%= f.label :qualifications, 'Preferred qualifications' %>
+                  <%= f.text_field :qualifications, class: "form-control" %>
+                </div>
+              </div>
+
+              <div class="form-group form-group-default">
+                <div class="controls">
+                  <%= f.label :questions, 'Screening questions' %>
+                  <%= f.text_area :questions, placeholder: "Add a few questions you'd like your candidates to answer when applying to your job", class: "form-control" %>
+                </div>
+              </div>
+
+              <hr />
+
+              <strong>Desired Experience Level</strong>
+
+              <% JobPost.experence_levels.keys.each do |level| %>
+                <div class="inline-controls">
+                  <%= f.radio_button :experence_level, level %>
+                  <label class="inline control-label" for="job_post_experence_level_<%= level %>"> <%= level.humanize %></label>
+                </div>
+              <% end %>
+
+              <hr />
+
+              <strong>How long do you expect to last this job</strong>
+
+              <% JobPost.job_periods.keys.each do |period| %>
+                <div class="inline-controls">
+                  <%= f.radio_button :job_period, period %>
+                  <label class="inline control-label" for="job_post_job_period_<%= period %>"> <%= period.humanize %></label>
+                </div>
+              <% end %>
+
+              <hr />
+
+              <div class="actions">
+                <%= f.submit "Create", class: "btn btn-primary btn-cons m-t-10" %>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="row">
+            <div class="col-md-8">
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

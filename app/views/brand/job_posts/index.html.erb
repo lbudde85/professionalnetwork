@@ -1,0 +1,51 @@
+
+<div class="content">
+
+  <div class="container-fluid container-fixed-lg">
+    <ul class="breadcrumb">
+      <li>
+        <p>Grocoon Network</p>
+      </li>
+      <li>
+        <a class="active" href="#">Jobs</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="container-fluid container-fixed-lg bg-white">
+    <div class="panel panel-transparent">
+
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel-title">
+              My jobs
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-body">
+
+        <div class="row">
+          <div class="col-md-8">
+            <%= link_to 'Create new job', brand_jobs_new_path, class: "btn btn-primary btn-cons m-t-10" %>
+          </div>
+        </div>
+
+        <hr />
+
+        <%= render 'shared/jobs_table', job_posts: @job_posts %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :scripts do %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'brand' %>
+  <%= javascript_include_tag 'datatables' %>
+  <%= javascript_include_tag 'job_posts' %>
+<% end %>

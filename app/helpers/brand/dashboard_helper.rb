@@ -1,0 +1,2 @@
+module Brand::DashboardHelper
+end

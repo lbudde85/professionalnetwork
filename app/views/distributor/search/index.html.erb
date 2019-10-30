@@ -1,0 +1,56 @@
+
+<div class="content">
+
+  <div class="container-fluid container-fixed-lg">
+    <ul class="breadcrumb">
+      <li>
+        <p>Grocoon Network</p>
+      </li>
+      <li>
+        <a class="active" href="#">Search</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="container-fluid container-fixed-lg bg-white">
+    <div class="panel">
+
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel-title">
+              Search for jobs
+            </div>
+
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-body">
+
+        <div class="input-group col-md-6 center-margin">
+          <%= form_tag distributor_search_path, method: :get do %>
+            <div class="input-group col-md-12 center-margin">
+              <%= search_field_tag :query, params[:query], id: "icon-filter", placeholder: 'Search jobs ...', class: "form-control" %>
+              <span class="input-group-addon">
+                <i class="pg-search"></i>
+              </span>
+            </div>
+            <%= submit_tag 'Search', name: nil, class: "btn btn-success btn-sm m-t-10" %>
+          <% end %>
+        </div>
+
+        <%= render 'shared/jobs_table', job_posts: @job_posts %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :scripts do %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'agent' %>
+  <%= javascript_include_tag 'datatables' %>
+  <%= javascript_include_tag 'job_posts' %>
+<% end %>

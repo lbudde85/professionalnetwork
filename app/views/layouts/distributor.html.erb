@@ -1,0 +1,64 @@
+<% content_for :appStyles do %>
+  <% if yield(:styles).presence %>
+    <%= yield :styles %>
+  <% else %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_link_tag 'distributor', media: 'all' %>
+  <% end %>
+<% end %>
+
+<% content_for :menu do %>
+  <div class="sidebar-menu">
+    <ul class="menu-items">
+      <%= render 'shared/nav_item', link: distributor_path, title: 'Dashboard', icon: "dashboard", space: 1 %>
+      <%= render 'shared/nav_item', link: distributor_search_path, title: 'Search', icon: "tags", space: 1 %>
+    </ul>
+    <div class="clearfix"></div>
+  </div>
+<% end %>
+
+<% content_for :dropdown do %>
+  <div class="pull-right">
+    <div class="m-t-10">
+      <div class="dropdown pull-right">
+        <button class="profile-dropdown-toggle" aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button">
+          <div class="pull-left p-r-10 p-t-10 fs-16 font-heading">
+            <span class="semi-bold hidden-xs hidden-sm">
+              <%= current_user.email %>
+            </span>
+          </div>
+          <span class="thumbnail-wrapper d32 inline m-t-5">
+            <img alt="Grocoon" data-src="<%= image_path('logo/grocoon_small.png') %>" data-src-retina="<%= image_path('logo/grocoon_small@2x.png') %>" height="32" src="<%= image_path('logo/grocoon_small.png') %>" width="32" />
+          </span>
+        </button>
+        <ul class="dropdown-menu profile-dropdown" role="menu">
+          <li>
+            <%= link_to distributor_profile_path do %>
+              <i class="fa fa-user"></i>
+              Edit profile
+            <% end %>
+          </li>
+          <li class="bg-master-lighter">
+            <%= link_to destroy_user_session_path, :method => :delete, class: 'clearfix' do %>
+              <span class="pull-left">Logout</span>
+              <span class="pull-right">
+                <i class="pg-power"></i>
+              </span>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% content_for :appScripts do %>
+  <% if yield(:scripts).presence %>
+    <%= yield :scripts %>
+  <% else %>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'distributor' %>
+  <% end %>
+<% end %>
+
+<%= render template: "layouts/application" %>

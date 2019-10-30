@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_link_tag 'default', media: 'all' %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body class="fixed-header">
+    <div class="login-wrapper">
+
+      <div class="bg-pic">
+        <img class="lazy" data-src="<%= image_path('background.jpg') %>" data-src-retina="<%= image_path('background@2x.jpg') %>" src="<%= image_path('background@2x.jpg') %>" />
+        <div class="bg-caption pull-bottom sm-pull-bottom text-white p-l-20 m-b-20">
+          <h2 class="semi-bold text-white">
+            Grocoon's Professional Network
+          </h2>
+          <p class="small">
+            All work copyright of respective owner, otherwise © 2017 Grocoon.
+          </p>
+        </div>
+      </div>
+
+      <div class="login-container bg-white">
+        <div class="p-l-50 m-l-20 p-r-50 m-r-20 p-t-50 sm-p-l-15 sm-p-r-15 sm-p-t-40">
+
+          <%= yield %>
+
+        </div>
+      </div>
+    </div>
+
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'default' %>
+
+    <script>
+      $(function()
+      {
+        $('#form-login').validate()
+      })
+    </script>
+
+  </body>
+</html>

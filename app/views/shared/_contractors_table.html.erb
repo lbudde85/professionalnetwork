@@ -1,0 +1,90 @@
+
+<table class="table table-hover demo-table-search" id="contractorsTable">
+
+  <thead>
+    <tr>
+      <th>Company name</th>
+      <th>Type</th>
+      <th>Contact details</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% contractors.each do |contractor| %>
+      <tr>
+        <td class="v-align-middle">
+          <p>
+            <strong><%= contractor.user.company_name %></strong>
+          </p>
+
+          <% if contractor.logo? %>
+            <p>
+              <%= image_tag contractor.logo.url(:thumb) %>
+            </p>
+          <% end -%>
+        </td>
+
+        <td class="v-align-left">
+          <p>
+            <%= contractor.user.user_type.humanize %>
+          </p>
+        </td>
+
+        <td class="v-align-left">
+          <div class="row">
+            <div class="col-md-4">
+              <strong>Contact:</strong>
+            </div>
+            <div class="col-md-8">
+              <%= contractor.contact_person %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <strong>Position:</strong>
+            </div>
+            <div class="col-md-8">
+              <%= contractor.contact_position %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <strong>Country:</strong>
+            </div>
+            <div class="col-md-8">
+              <%= contractor.user.country.name.capitalize %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <strong>E-mail:</strong>
+            </div>
+            <div class="col-md-8">
+              <%= contractor.contact_email %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <strong>Homepage:</strong>
+            </div>
+            <div class="col-md-8">
+              <%= contractor.homepage_url %>
+            </div>
+          </div>
+        </td>
+
+        <td>
+          <p>
+            <%= contractor.description %>
+          </p>
+        </td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>

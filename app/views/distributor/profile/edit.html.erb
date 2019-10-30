@@ -1,0 +1,115 @@
+
+<div class="content">
+
+  <div class="container-fluid container-fixed-lg">
+    <ul class="breadcrumb">
+      <li>
+        <p>Grocoon Network</p>
+      </li>
+      <li>
+        <a class="active" href="#">Edit profile</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="container-fluid container-fixed-lg bg-white">
+    <div class="panel panel-transparent">
+
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel-title">
+              Tell us more about your company
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-body">
+
+        <div class="col-md-8">
+          <%= form_for(@distributor_profile, url: distributor_profile_path) do |f| %>
+
+            <div class="form-group form-group-default">
+              <div class="controls">
+                <%= f.label :description, 'What kind of products do you offer?' %>
+                <%= f.text_field :description, placeholder: 'Shoes for Running, Textiles, Hardware', required: true, class: "form-control" %>
+              </div>
+            </div>
+
+            <div class="form-group form-group-default">
+              <div class="controls">
+                <div class="row">
+                  <div class="col-md-4">
+                    <% if @distributor_profile.logo? %>
+                      <%= image_tag @distributor_profile.logo.url(:thumb) %>
+                    <% end -%>
+                  </div>
+                  <div class="col-md-8">
+                    <%= f.label :logo, 'Upload your logo' %>
+                    <%= f.file_field :logo %>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group form-group-default">
+              <div class="controls">
+                <%= f.label :contact_person, 'Contact person name' %>
+                <%= f.text_area :contact_person, placeholder: 'Name', required: true, class: "form-control" %>
+              </div>
+            </div>
+
+            <div class="form-group form-group-default">
+              <div class="controls">
+                <%= f.label :contact_position, 'Contact person position' %>
+                <%= f.text_area :contact_position, placeholder: 'Position (CEO, employee)', required: true, class: "form-control" %>
+              </div>
+            </div>
+
+            <div class="form-group form-group-default">
+              <div class="controls">
+                <%= f.label :contact_email, 'Contact e-mail' %>
+                <%= f.text_area :contact_email, placeholder: 'E-mail', required: true, class: "form-control" %>
+              </div>
+            </div>
+
+            <div class="form-group form-group-default">
+              <div class="controls">
+                <%= f.label :homepage_url, 'Homepage link' %>
+                <%= f.text_field :homepage_url, placeholder: 'Homepage URL', class: "form-control" %>
+              </div>
+            </div>
+
+            <div class="form-group form-group-default">
+              <div class="controls">
+                <%= f.label :city, 'City' %>
+                <%= f.text_field :city, placeholder: 'City', class: "form-control" %>
+              </div>
+            </div>
+
+            <div class="form-group form-group-default">
+              <div class="controls">
+                <%= f.label :street, 'Street' %>
+                <%= f.text_field :street, placeholder: 'Street', class: "form-control" %>
+              </div>
+            </div>
+
+            <div class="form-group form-group-default">
+              <div class="controls">
+                <%= f.label :phone, 'Contact phone' %>
+                <%= f.text_field :phone, placeholder: 'Phone number', class: "form-control" %>
+              </div>
+            </div>
+
+            <div class="actions">
+              <%= f.submit "Save", class: "btn btn-primary btn-cons m-t-10" %>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

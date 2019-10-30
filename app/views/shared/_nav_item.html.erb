@@ -1,0 +1,10 @@
+<% local_assigns.has_key?(:space) ? '' : space = false %>
+
+<li class="<%= current_page?(link) ? 'open' : '' %> <%= space ? 'm-t-30' : ''%>">
+  <a href="<%= link %>">
+    <span class="title" style="width: 90%;"><%= title %></span>
+  </a>
+  <span class="icon-thumbnail <%= current_page?(link) ? 'bg-success' : '' %>">
+    <i class="menu-items-fa fa fa-<%= icon %>"></i>
+  </span>
+</li>

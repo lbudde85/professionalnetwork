@@ -1,0 +1,108 @@
+
+<div class="content">
+
+  <div class="container-fluid container-fixed-lg">
+    <ul class="breadcrumb">
+      <li>
+        <p>Grocoon Network</p>
+      </li>
+      <li>
+        <a class="active" href="#">Edit profile</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="container-fluid container-fixed-lg bg-white">
+    <div class="panel panel-transparent">
+
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel-title">
+              Tell us more about your brand and products
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-body">
+
+        <div class="col-md-8">
+          <%= form_for(@brand_profile, url: brand_profile_path) do |f| %>
+
+            <div class="form-group form-group-default">
+              <div class="controls">
+                <%= f.label :description, 'What kind of products do you offer?' %>
+                <%= f.text_field :description, placeholder: 'Shoes for Running, Textiles, Hardware', required: true, class: "form-control" %>
+              </div>
+            </div>
+
+            <div class="form-group form-group-default">
+              <div class="controls">
+                <%= f.label :category %>
+                <%= f.select :category_id, Category.all.collect {|c| [ c.name, c.id ] }, { include_blank: true } %>
+              </div>
+            </div>
+
+            <div class="form-group form-group-default">
+              <div class="controls">
+                <div class="row">
+                  <div class="col-md-4">
+                    <% if @brand_profile.logo? %>
+                      <%= image_tag @brand_profile.logo.url(:thumb) %>
+                    <% end -%>
+                  </div>
+                  <div class="col-md-8">
+                    <%= f.label :logo, 'Upload brand logo' %>
+                    <%= f.file_field :logo %>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group form-group-default">
+              <div class="controls">
+                <%= f.label :product_info, 'Here you can provide more information about products and brand' %>
+                <%= f.text_area :product_info, required: true, class: "form-control" %>
+              </div>
+            </div>
+
+            <div class="form-group form-group-default">
+              <div class="controls">
+                <%= f.label :homepage_url, 'Homepage link' %>
+                <%= f.text_field :homepage_url, placeholder: 'Homepage URL', class: "form-control" %>
+              </div>
+            </div>
+
+            <div class="form-group form-group-default">
+              <div class="controls">
+                <%= f.label :city, 'City' %>
+                <%= f.text_field :city, placeholder: 'City', class: "form-control" %>
+              </div>
+            </div>
+
+            <div class="form-group form-group-default">
+              <div class="controls">
+                <%= f.label :street, 'Street' %>
+                <%= f.text_field :street, placeholder: 'Street', class: "form-control" %>
+              </div>
+            </div>
+
+            <div class="form-group form-group-default">
+              <div class="controls">
+                <%= f.label :phone, 'Contact phone' %>
+                <%= f.text_field :phone, placeholder: 'Phone number', class: "form-control" %>
+              </div>
+            </div>
+
+            <div class="actions">
+              <%= f.submit "Save", class: "btn btn-primary btn-cons m-t-10" %>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

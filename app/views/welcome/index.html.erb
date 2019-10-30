@@ -1,0 +1,39 @@
+
+<h3>Welcome to Grocoon's Professional Network</h3>
+
+<% if not current_user %>
+  <p>
+
+    <%= form_for(:user, url: user_session_url) do |f| %>
+      <div class="form-group form-group-default">
+        <div class="controls">
+          <%= f.label :email %>
+          <%= f.email_field :email, placeholder: 'E-mail', required: true, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group form-group-default">
+        <div class="controls">
+          <%= f.label :password %>
+          <%= f.password_field :password, placeholder: 'Password', required: true, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="checkbox check-primary">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign in", class: "btn btn-primary btn-cons m-t-10" %>
+      </div>
+    <% end %>
+
+  </p>
+
+  <p>
+    Don't have an account?
+    <br/>
+    <%= link_to 'Sign up', new_user_registration_path %>
+  </p>
+<% end %>

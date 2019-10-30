@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="de">
+  <head>
+    <%= yield :appStyles %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body class="fixed-header #{cookies[:sidebar] ? 'menu-pin' : ''}">
+    <div class="page-sidebar" data-pages="sidebar">
+      <div class="sidebar-header">
+        <img class="brand"/>
+        <div class="sidebar-header-controls">
+          <button class="btn btn-xs sidebar-slide-toggle btn-link m-l-20" data-pages-toggle="#appMenu" type="button">
+            <i class="fa fa-angle-down fs-16"></i>
+          </button>
+          <button class="btn btn-link visible-lg-inline" data-toggle-pin="sidebar" type="button" style='margin-left:48px;'>
+            <i class="fa fs-12"></i>
+          </button>
+        </div>
+      </div>
+      <%= yield :menu %>
+    </div>
+    <div class="page-container">
+      <div class="header">
+        <div class="pull-left full-height visible-sm visible-xs">
+          <div class="sm-action-bar">
+            <a class="btn-link toggle-sidebar" data-toggle="sidebar" href="#">
+              <span class="icon-set menu-hambuger"></span>
+            </a>
+          </div>
+        </div>
+        <div class="pull-left sm-table">
+          <div class="header-inner">
+            <div class="brand inline">
+              <img/>
+            </div>
+            <%= yield :notification %>
+          </div>
+        </div>
+        <%= yield :quickview_toggle %>
+        <%= yield :dropdown %>
+      </div>
+      <div class="page-content-wrapper">
+        <%= yield %>
+      </div>
+    </div>
+    <%= yield :quickview %>
+    <%= yield :modals %>
+    <%= yield :appScripts %>
+  </body>
+</html>

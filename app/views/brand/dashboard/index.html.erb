@@ -1,0 +1,51 @@
+
+<div class="content">
+
+  <div class="container-fluid container-fixed-lg">
+    <ul class="breadcrumb">
+      <li>
+        <p>Grocoon Network</p>
+      </li>
+      <li>
+        <a class="active" href="#">Dashboard</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="container-fluid container-fixed-lg bg-white">
+    <div class="panel panel-transparent">
+
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel-title">
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-body">
+
+        <div class="row">
+          <div class="col-md-8">
+            <h3>You want to post a new job offer?</h3>
+          </div>
+          <div class="col-md-4">
+            <%= link_to 'New job', brand_jobs_new_path, class: "btn btn-primary btn-cons m-t-10" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-8">
+            <h3>You just want to search for distributors or agents?</h3>
+          </div>
+          <div class="col-md-4">
+            <%= link_to 'Search', brand_search_path, class: "btn btn-primary btn-cons m-t-10" %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

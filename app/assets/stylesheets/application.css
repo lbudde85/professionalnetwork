@@ -1,0 +1,105 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require pages-plugins/pace/pace-theme-flash
+ *= require pages-plugins/boostrapv3/css/bootstrap.min
+ *= require pages-plugins/font-awesome/css/font-awesome
+ *= require pages-plugins/jquery-scrollbar/jquery.scrollbar
+ *= require pages-plugins/bootstrap-select2/select2
+ *= require pages-plugins/switchery/css/switchery.min
+ *= require pages-core/css/pages-icons
+ *= require pages-core/css/pages
+ *= require stylesheets/libs/ladda-themeless.min.css
+
+ *= require pages-plugins/jquery-datatable/media/css/jquery.dataTables
+ *= require pages-plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min
+ *= require pages-plugins/datatables-responsive/css/datatables.responsive
+ */
+
+ body > .pgn-wrapper {
+  z-index: 999999999;
+}
+
+.quickview-wrapper .btn.btn-square {
+  border-radius: 0;
+}
+
+.quickview-wrapper .view-variants .list-view-fake-header {
+  display: none;
+}
+
+.quickview-wrapper li > .element {
+  height: 60px;
+  margin-right: 15px;
+  display: table;
+  width: 100%;
+}
+
+.quickview-wrapper .list-view.boreded li > .element {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+.quickview-wrapper .list-view.boreded li:last-child > .element {
+  border-bottom: 0;
+}
+
+.table tbody tr td {
+    padding: 10px;
+}
+
+.badge-notify{
+   background:green;
+   position:relative;
+   top: -15px;
+   left: -7px;
+   color: white;
+  }
+
+.sm-action-bar .badge-notify{
+   top: -30px;
+   left: 12px;
+  }
+
+.application-language {
+  padding-left: 10px;
+}
+
+.b-grey:nth-child(3n) {
+  border: none;
+}
+@media (max-width: 991px) {
+  .b-grey {
+    border: none;
+  }
+}
+
+.email-sidebar a {
+    cursor: pointer;
+}
+
+[class^="pg-"], [class*=" pg-"]{
+  line-height: inherit;
+}
+
+.page-sidebar .sidebar-menu .menu-items > li > a{
+  line-height:47px;
+}
+
+.fa{
+  line-height: inherit;
+}
+
+.menu-items-fa {
+  margin-top: 14px;
+}
+
